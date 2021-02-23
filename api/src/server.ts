@@ -1,15 +1,15 @@
+
+import 'reflect-metadata';
 import express from "express";
 
 const app = express();
 
+import './database'
+import { router } from './routes';
 
-app.get('/users', (request, response) =>{
-    return response.json({method : "GET", msg : "Hello World from GET!"});
-});
+app.use(express.json());
+app.use(router);
 
-app.post('/users', (request, response) => {
-    return response.json({method : "POST", msg : "Hello World from post!"});
-});
 
 app.listen(5000, () => {
     console.log("Server stated in port 5000");

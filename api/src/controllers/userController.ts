@@ -24,6 +24,7 @@ class UserController{
             name, email
         });
 
+        console.log(user.id);
         await userRepository.save(user);
 
         return response.status(201).json(user);
